@@ -1,27 +1,43 @@
-// Mock data for Luv Suneja's Portfolio
+/**
+ * Mock data for Luv Suneja's Portfolio
+ * TypeScript-typed data structures for the portfolio application
+ */
 
-export const personalInfo = {
+import type {
+  PersonalInfo,
+  Project,
+  Service,
+  BlogPost,
+  Achievement,
+  Education,
+  ProjectCategory,
+  BlogCategory,
+} from '../types';
+
+export const personalInfo: PersonalInfo = {
   name: "Luv Suneja",
   title: "Senior Tech Leader & AI Strategist",
   subtitle: "Transforming businesses through AI, MLOps & Data Engineering",
-  location: "Dubai, UAE",
-  email: "luvsuneja@gmail.com",
-  phone: "+971 50 952 8461",
-  linkedin: "linkedin.com/in/luvsuneja",
   bio: "Data Professional with 7+ years of experience, skilled in AI, MLOps, Data Engineering and CI/CD. Proven track record in designing and implementing AI and ML solutions in the logistics and supply chain industry, with strategic leadership experience in data platform transformation.",
   experience: "7+ Years",
   teamLed: "7 Data Scientists + 2 Data Engineers",
-  costSavings: "$1M+ Annual Savings"
+  costSavings: "$1M+ Annual Savings",
+  contact: {
+    email: "luvsuneja@gmail.com",
+    phone: "+971 50 952 8461",
+    linkedin: "linkedin.com/in/luvsuneja",
+    location: "Dubai, UAE"
+  }
 };
 
-export const featuredProjects = [
+export const featuredProjects: Project[] = [
   {
     id: "ai-bi-assistant",
     title: "AI-Powered BI Assistant",
     description: "Created NLP-to-SQL chat using RAG and OpenAI models, transforming user chat into actionable business insights. Boosted productivity by integrating into Teams via Power Automate.",
     impact: "Enhanced user experience with context memory & RBAC security",
     techStack: ["React", "Python", "Langchain", "Weaviate", "Lambda", "PostgreSQL", "RAG", "OpenAI", "FastAPI"],
-    category: "AI/ML"
+    category: "AI/ML" as ProjectCategory
   },
   {
     id: "data-engineering-transition",
@@ -29,7 +45,7 @@ export const featuredProjects = [
     description: "Transitioned from vendor to in-house data engineering & MLOps team, saving USD 877,670 annually. Spearheaded end-to-end pipeline management and infrastructure.",
     impact: "40% efficiency improvement through successful insourcing",
     techStack: ["Python", "AWS", "ETL", "MLOps", "Monitoring", "Cost Optimization"],
-    category: "MLOps"
+    category: "MLOps" as ProjectCategory
   },
   {
     id: "geocoding-system",
@@ -37,7 +53,7 @@ export const featuredProjects = [
     description: "Developed CNN-based impersonal geocoder and address completion API using hierarchical clustering. Built end-to-end event-driven microservice architecture.",
     impact: "Core service supporting sorting, sequencing & route optimization",
     techStack: ["CNN", "Keras", "API Gateway", "ECS Fargate", "EventBridge", "Docker", "CloudFormation"],
-    category: "AI/ML"
+    category: "AI/ML" as ProjectCategory
   },
   {
     id: "hs-code-classification",
@@ -45,11 +61,11 @@ export const featuredProjects = [
     description: "Built deep learning model to predict HS codes for incoming shipments, enabling automated customs duty calculation. Processes over 1 million requests annually.",
     impact: "Significantly reduced customs processing time",
     techStack: ["Python", "Keras", "CNN", "SageMaker", "Lambda", "API Gateway"],
-    category: "AI/ML"
+    category: "AI/ML" as ProjectCategory
   }
 ];
 
-export const services = [
+export const services: Service[] = [
   {
     id: "ai-ml-consulting",
     title: "AI/ML Consulting & Strategy",
@@ -76,12 +92,12 @@ export const services = [
   }
 ];
 
-export const blogPosts = [
+export const blogPosts: BlogPost[] = [
   {
     id: "ai-is-now",
     title: "AI Isn't the Future—It's the Now. And Your Competitors Are Already Winning With It",
     excerpt: "Market research shows companies integrating AI into workflows gain up to 40% efficiency and 20–30% lower costs within a year. Yet only 1% of enterprises report achieving true AI maturity.",
-    category: "Strategic Insights",
+    category: "Strategic Insights" as BlogCategory,
     readTime: "8 min read",
     publishDate: "2025-07-27",
     featured: true,
@@ -141,23 +157,25 @@ You need:
     id: "mlops-at-scale",
     title: "MLOps at Scale: Lessons from $1M+ Cost Savings",
     excerpt: "A detailed case study on transitioning from vendor-dependent to in-house MLOps, including challenges, solutions, and measurable business impact.",
-    category: "Case Study",
+    category: "Case Study" as BlogCategory,
     readTime: "12 min read",
     publishDate: "2024-12-10",
-    featured: true
+    featured: true,
+    content: "A detailed case study on transitioning from vendor-dependent to in-house MLOps, including challenges, solutions, and measurable business impact. Content will be expanded in future iterations."
   },
   {
     id: "building-ai-teams",
     title: "Building World-Class AI Teams: A Leadership Perspective",
     excerpt: "Strategic insights on hiring, scaling, and leading AI teams from startup to enterprise. Real experiences from growing a team from 2 to 9 members.",
-    category: "Leadership",
+    category: "Leadership" as BlogCategory,
     readTime: "6 min read",
     publishDate: "2024-12-05",
-    featured: false
+    featured: false,
+    content: "Strategic insights on hiring, scaling, and leading AI teams from startup to enterprise. Real experiences from growing a team from 2 to 9 members. Content will be expanded in future iterations."
   }
 ];
 
-export const achievements = [
+export const achievements: Achievement[] = [
   {
     title: "Patent Filed",
     description: "Address prediction system for GCC region (Patent Pending)"
@@ -176,7 +194,7 @@ export const achievements = [
   }
 ];
 
-export const skills = {
+export const skills: Record<string, string[]> = {
   "AI/ML": ["TensorFlow", "PyTorch", "Sklearn", "XGBoost", "Deep Learning", "NLP", "LLMs", "Transformers"],
   "Cloud & MLOps": ["AWS SageMaker", "Lambda", "ECS", "MLflow", "CI/CD", "Model Monitoring", "Versioning"],
   "Data Engineering": ["PySpark", "ETL Pipelines", "Redshift", "Data Warehousing", "Matillion"],
@@ -184,12 +202,12 @@ export const skills = {
   "Leadership": ["Team Building", "Strategic Planning", "Stakeholder Management", "Cost Optimization"]
 };
 
-export const certifications = [
+export const certifications: string[] = [
   "AWS Certified Developer – Associate",
   "AWS Certified Machine Learning – Specialty"
 ];
 
-export const education = [
+export const education: Education[] = [
   {
     degree: "MS in Electrical and Computer Engineering",
     school: "Georgia Institute of Technology",

@@ -1,16 +1,33 @@
-import React from 'react';
+import { FC } from 'react';
 import { ArrowRight, MapPin, Mail, Phone } from 'lucide-react';
 import { personalInfo } from '../data/mock';
+import { HeroProps, PersonalInfo } from '../types';
 
-const Hero = () => {
-  const scrollToProjects = () => {
+const Hero: FC<HeroProps> = ({ 
+  personalInfo: providedPersonalInfo,
+  onViewWorkClick,
+  onConnectClick,
+  className = '',
+  showAnimation = true
+}) => {
+  const profile: PersonalInfo = providedPersonalInfo || personalInfo;
+
+  const scrollToProjects = (): void => {
+    if (onViewWorkClick) {
+      onViewWorkClick({} as React.MouseEvent<HTMLButtonElement>);
+      return;
+    }
     const element = document.querySelector('#projects');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  const scrollToContact = () => {
+  const scrollToContact = (): void => {
+    if (onConnectClick) {
+      onConnectClick({} as React.MouseEvent<HTMLButtonElement>);
+      return;
+    }
     const element = document.querySelector('#contact');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -18,38 +35,40 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white pt-20">
+    <section className={`min-h-screen flex items-center justify-center bg-white pt-20 ${className}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-20">
         <div className="text-center max-w-4xl mx-auto">
           {/* Abstract AI-inspired graphic */}
-          <div className="mb-12 flex justify-center">
-            <div className="relative w-32 h-32 lg:w-40 lg:h-40">
-              <div className="absolute inset-0 rounded-full border border-gray-200 animate-pulse"></div>
-              <div className="absolute inset-2 rounded-full border border-gray-300 animate-pulse delay-150"></div>
-              <div className="absolute inset-4 rounded-full border border-gray-400 animate-pulse delay-300"></div>
-              <div className="absolute inset-6 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 animate-pulse delay-500"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-full animate-pulse"></div>
+          {showAnimation && (
+            <div className="mb-12 flex justify-center">
+              <div className="relative w-32 h-32 lg:w-40 lg:h-40">
+                <div className="absolute inset-0 rounded-full border border-gray-200 animate-pulse"></div>
+                <div className="absolute inset-2 rounded-full border border-gray-300 animate-pulse delay-150"></div>
+                <div className="absolute inset-4 rounded-full border border-gray-400 animate-pulse delay-300"></div>
+                <div className="absolute inset-6 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 animate-pulse delay-500"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-full animate-pulse"></div>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Main headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-black mb-6 tracking-tight leading-tight">
-            {personalInfo.name}
+            {profile.name}
           </h1>
           
           <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-gray-600 mb-8 tracking-wide">
-            {personalInfo.title}
+            {profile.title}
           </h2>
 
           <p className="text-lg md:text-xl text-gray-500 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-            {personalInfo.subtitle}
+            {profile.subtitle}
           </p>
 
           {/* Key stats */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 mb-12">
             <div className="text-center">
               <div className="text-2xl lg:text-3xl font-light text-black mb-1">
-                {personalInfo.experience}
+                {profile.experience}
               </div>
               <div className="text-sm text-gray-500 uppercase tracking-wider">
                 Experience
@@ -58,7 +77,7 @@ const Hero = () => {
             <div className="hidden md:block w-px h-12 bg-gray-200"></div>
             <div className="text-center">
               <div className="text-2xl lg:text-3xl font-light text-black mb-1">
-                {personalInfo.costSavings}
+                {profile.costSavings}
               </div>
               <div className="text-sm text-gray-500 uppercase tracking-wider">
                 Cost Savings
@@ -67,7 +86,7 @@ const Hero = () => {
             <div className="hidden md:block w-px h-12 bg-gray-200"></div>
             <div className="text-center">
               <div className="text-2xl lg:text-3xl font-light text-black mb-1">
-                {personalInfo.teamLed.split(' ')[0]}
+                {profile.teamLed?.split(' ')[0] || 'N/A'}
               </div>
               <div className="text-sm text-gray-500 uppercase tracking-wider">
                 Team Members
@@ -79,17 +98,17 @@ const Hero = () => {
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 mb-12 text-sm text-gray-600">
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4" />
-              <span>{personalInfo.location}</span>
+              <span>{profile.contact.location}</span>
             </div>
             <div className="hidden md:block w-px h-4 bg-gray-300"></div>
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4" />
-              <span>{personalInfo.email}</span>
+              <span>{profile.contact.email}</span>
             </div>
             <div className="hidden md:block w-px h-4 bg-gray-300"></div>
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4" />
-              <span>{personalInfo.phone}</span>
+              <span>{profile.contact.phone}</span>
             </div>
           </div>
 

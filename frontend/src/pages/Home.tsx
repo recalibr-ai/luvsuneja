@@ -1,19 +1,20 @@
-import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import { personalInfo, featuredProjects, services, blogPosts } from '../data/mock';
 import { ExternalLink, Calendar, Clock, ArrowRight, Award, Users, DollarSign, Target } from 'lucide-react';
+import { PersonalInfo, Project, Service, BlogPostSummary, Achievement } from '../types';
 
-const Home = () => {
+const Home: FC = () => {
   // Use static data instead of API calls
-  const profile = personalInfo;
-  const projects = featuredProjects;
-  const servicesData = services;
-  const blogData = blogPosts;
+  const profile: PersonalInfo = personalInfo;
+  const projects: Project[] = featuredProjects;
+  const servicesData: Service[] = services;
+  const blogData: BlogPostSummary[] = blogPosts;
 
   // Mock achievements data (static content)
-  const achievements = [
+  const achievements: Achievement[] = [
     {
       title: "Patent Filed",
       description: "Address prediction system for GCC region (Patent Pending)"
@@ -36,7 +37,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <Hero profile={profile} />
+      <Hero personalInfo={profile} />
       
       {/* About Section */}
       <section id="about" className="py-20 lg:py-28 bg-gray-50">
@@ -113,7 +114,7 @@ const Home = () => {
                           {tech}
                         </span>
                       ))}
-                      {project.techStack?.length > 4 && (
+                      {project.techStack && project.techStack.length > 4 && (
                         <span className="text-xs px-3 py-1 text-gray-500">
                           +{project.techStack.length - 4} more
                         </span>
@@ -224,16 +225,16 @@ const Home = () => {
             
             <div className="flex flex-col sm:flex-row gap-6 items-center justify-center">
               <a 
-                href={`mailto:${profile.email}`}
+                href={`mailto:${profile.contact.email}`}
                 className="bg-white text-black px-8 py-3 font-normal hover:bg-gray-100 transition-all duration-300 hover:scale-105"
               >
-                {profile.email}
+                {profile.contact.email}
               </a>
               <a 
-                href={`tel:${profile.phone}`}
+                href={`tel:${profile.contact.phone}`}
                 className="px-8 py-3 font-normal border border-white hover:bg-white hover:text-black transition-all duration-300 hover:scale-105"
               >
-                {profile.phone}
+                {profile.contact.phone}
               </a>
             </div>
           </div>
@@ -248,7 +249,7 @@ const Home = () => {
               © 2024 {profile.name}. All rights reserved.
             </div>
             <div className="text-sm text-gray-400">
-              {profile.location} • {profile.title}
+              {profile.contact.location} • {profile.title}
             </div>
           </div>
         </div>

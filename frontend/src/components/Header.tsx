@@ -1,12 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 import { Menu, X } from 'lucide-react';
+import { HeaderProps, NavigationItem } from '../types';
 
-const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const Header: FC<HeaderProps> = ({ 
+  className = '', 
+  navigationItems,
+  ctaButton,
+  mobileMenuOpen,
+  onMobileMenuToggle
+}) => {
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(mobileMenuOpen || false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       setIsScrolled(window.scrollY > 50);
     };
 
@@ -14,7 +21,8 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  // Use provided navigation items or default ones
+  const navItems: NavigationItem[] = navigationItems || [
     { label: 'About', href: '#about' },
     { label: 'Projects', href: '#projects' },
     { label: 'Services', href: '#services' },
@@ -22,12 +30,20 @@ const Header = () => {
     { label: 'Contact', href: '#contact' }
   ];
 
-  const scrollToSection = (href) => {
+  const scrollToSection = (href: string): void => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
+  };
+
+  const handleMobileMenuToggle = (): void => {
+    const newState = !isMobileMenuOpen;
+    setIsMobileMenuOpen(newState);
+    if (onMobileMenuToggle) {
+      onMobileMenuToggle();
+    }
   };
 
   return (
@@ -36,7 +52,7 @@ const Header = () => {
         isScrolled 
           ? 'bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm' 
           : 'bg-transparent'
-      }`}
+      } ${className}`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -52,24 +68,33 @@ const Header = () => {
             {navItems.map((item) => (
               <button
                 key={item.label}
-                onClick={() => scrollToSection(item.href)}
+                onClick={item.onClick || (() => scrollToSection(item.href))}
                 className="text-sm font-normal text-gray-700 hover:text-black transition-all duration-200 hover:-translate-y-0.5"
               >
                 {item.label}
               </button>
             ))}
-            <button
-              onClick={() => scrollToSection('#contact')}
-              className="bg-black text-white px-6 py-2 text-sm font-normal hover:bg-gray-800 transition-all duration-200 hover:scale-105"
-            >
-              Get In Touch
-            </button>
+            {ctaButton ? (
+              <button
+                onClick={ctaButton.onClick}
+                className="bg-black text-white px-6 py-2 text-sm font-normal hover:bg-gray-800 transition-all duration-200 hover:scale-105"
+              >
+                {ctaButton.label}
+              </button>
+            ) : (
+              <button
+                onClick={() => scrollToSection('#contact')}
+                className="bg-black text-white px-6 py-2 text-sm font-normal hover:bg-gray-800 transition-all duration-200 hover:scale-105"
+              >
+                Get In Touch
+              </button>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={handleMobileMenuToggle}
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6 text-black" />
@@ -86,18 +111,27 @@ const Header = () => {
               {navItems.map((item) => (
                 <button
                   key={item.label}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={item.onClick || (() => scrollToSection(item.href))}
                   className="block w-full text-left text-gray-700 hover:text-black transition-colors duration-200 py-2"
                 >
                   {item.label}
                 </button>
               ))}
-              <button
-                onClick={() => scrollToSection('#contact')}
-                className="w-full bg-black text-white px-6 py-3 text-sm font-normal hover:bg-gray-800 transition-colors duration-200 mt-4"
-              >
-                Get In Touch
-              </button>
+              {ctaButton ? (
+                <button
+                  onClick={ctaButton.onClick}
+                  className="w-full bg-black text-white px-6 py-3 text-sm font-normal hover:bg-gray-800 transition-colors duration-200 mt-4"
+                >
+                  {ctaButton.label}
+                </button>
+              ) : (
+                <button
+                  onClick={() => scrollToSection('#contact')}
+                  className="w-full bg-black text-white px-6 py-3 text-sm font-normal hover:bg-gray-800 transition-colors duration-200 mt-4"
+                >
+                  Get In Touch
+                </button>
+              )}
             </div>
           </div>
         )}

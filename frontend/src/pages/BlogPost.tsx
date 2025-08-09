@@ -1,13 +1,14 @@
-import React from 'react';
+import { FC } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, ExternalLink } from 'lucide-react';
 import Header from '../components/Header';
 import { blogPosts } from '../data/mock';
+import { BlogPost as BlogPostType } from '../types';
 
-const BlogPost = () => {
-  const { id } = useParams();
+const BlogPost: FC = () => {
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const post = blogPosts.find(p => p.id === id);
+  const post: BlogPostType | undefined = blogPosts.find(p => p.id === id);
 
   if (!post) {
     return (
@@ -28,7 +29,7 @@ const BlogPost = () => {
     );
   }
 
-  const formatContent = (content) => {
+  const formatContent = (content: string): string => {
     if (!content) return '';
     
     // Convert markdown-style formatting to HTML
