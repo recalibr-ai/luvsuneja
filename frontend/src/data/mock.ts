@@ -16,17 +16,18 @@ import type {
 
 export const personalInfo: PersonalInfo = {
   name: "Luv Suneja",
-  title: "Senior Tech Leader & AI Strategist",
-  subtitle: "Transforming businesses through AI, MLOps & Data Engineering",
+  title: "Applied AI Consultant",
+  subtitle: "Recalibrating Business Excellence for the AI-Driven Future",
   bio: "Data Professional with 7+ years of experience, skilled in AI, MLOps, Data Engineering and CI/CD. Proven track record in designing and implementing AI and ML solutions in the logistics and supply chain industry, with strategic leadership experience in data platform transformation.",
   experience: "7+ Years",
-  teamLed: "7 Data Scientists + 2 Data Engineers",
+  teamLed: "Independent Consultant",
   costSavings: "$1M+ Annual Savings",
   contact: {
     email: "luv@recalibr.ai",
-    phone: "+971 50 952 8461",
+    phone: "",
     linkedin: "linkedin.com/in/luvsuneja",
-    location: "Dubai, UAE"
+    location: "Dubai, UAE",
+    calendly: "https://cal.com/luv-suneja"
   }
 };
 
@@ -73,16 +74,16 @@ export const services: Service[] = [
     features: ["Strategic Planning", "ROI Analysis", "Technology Selection", "Implementation Roadmap"]
   },
   {
+    id: "implementation",
+    title: "Implementation & Delivery",
+    description: "Hands-on implementation of GenAI applications, AI/ML solutions, agentic AI systems, MLOps pipelines, and data engineering. From proof-of-concept to production-ready systems.",
+    features: ["GenAI & Agentic AI", "MLOps Setup", "Pipeline Development", "Model Deployment", "Monitoring Systems"]
+  },
+  {
     id: "advisory",
     title: "Technical Advisory",
     description: "Provide expert guidance on complex data and AI initiatives. Help leadership make informed decisions on technology investments and platform transformations.",
     features: ["Architecture Review", "Technology Assessment", "Risk Mitigation", "Vendor Evaluation"]
-  },
-  {
-    id: "implementation",
-    title: "Implementation & Delivery",
-    description: "Hands-on implementation of AI/ML solutions, MLOps pipelines, and data engineering platforms. From proof-of-concept to production-ready systems.",
-    features: ["MLOps Setup", "Pipeline Development", "Model Deployment", "Monitoring Systems"]
   },
   {
     id: "team-building",

@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { ArrowRight, MapPin, Mail, Phone } from 'lucide-react';
+import { FC, useState, useEffect } from 'react';
+import { ArrowRight, MapPin, Mail } from 'lucide-react';
 import { personalInfo } from '../data/mock';
 import { HeroProps, PersonalInfo } from '../types';
 
@@ -11,6 +11,19 @@ const Hero: FC<HeroProps> = ({
   showAnimation = true
 }) => {
   const profile: PersonalInfo = providedPersonalInfo || personalInfo;
+
+  // Dynamic phrases that rotate after "Recalibrating Business Excellence for"
+  const dynamicPhrases = [
+    "the AI-Driven Future",
+    "an Intelligent Economy", 
+    "Data-Driven Growth",
+    "Strategic Innovation",
+    "Competitive Advantage"
+  ];
+
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const scrollToProjects = (): void => {
     if (onViewWorkClick) {
@@ -33,6 +46,24 @@ const Hero: FC<HeroProps> = ({
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Rotation effect for dynamic phrases
+  useEffect(() => {
+    if (!isHovered) {
+      const interval = setInterval(() => {
+        setIsAnimating(true);
+        setTimeout(() => {
+          setCurrentPhraseIndex((prevIndex) => 
+            (prevIndex + 1) % dynamicPhrases.length
+          );
+          setIsAnimating(false);
+        }, 250); // Half of transition duration
+      }, 3500); // Rotate every 3.5 seconds
+
+      return () => clearInterval(interval);
+    }
+    return undefined;
+  }, [isHovered, dynamicPhrases.length]);
 
   return (
     <section className={`min-h-screen flex items-center justify-center bg-white pt-20 ${className}`}>
@@ -60,8 +91,18 @@ const Hero: FC<HeroProps> = ({
             {profile.title}
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-500 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-            {profile.subtitle}
+          <p 
+            className="text-lg md:text-xl text-gray-500 mb-12 max-w-3xl mx-auto font-light leading-relaxed"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            Recalibrating Business Excellence for{' '}
+            <span 
+              className="inline-block transition-opacity duration-500 ease-in-out"
+              style={{ opacity: isAnimating ? 0 : 1 }}
+            >
+              {dynamicPhrases[currentPhraseIndex]}
+            </span>
           </p>
 
           {/* Key stats */}
@@ -83,15 +124,6 @@ const Hero: FC<HeroProps> = ({
                 Cost Savings
               </div>
             </div>
-            <div className="hidden md:block w-px h-12 bg-gray-200"></div>
-            <div className="text-center">
-              <div className="text-2xl lg:text-3xl font-light text-black mb-1">
-                {profile.teamLed?.split(' ')[0] || 'N/A'}
-              </div>
-              <div className="text-sm text-gray-500 uppercase tracking-wider">
-                Team Members
-              </div>
-            </div>
           </div>
 
           {/* Contact info */}
@@ -103,12 +135,12 @@ const Hero: FC<HeroProps> = ({
             <div className="hidden md:block w-px h-4 bg-gray-300"></div>
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4" />
-              <span>{profile.contact.email}</span>
-            </div>
-            <div className="hidden md:block w-px h-4 bg-gray-300"></div>
-            <div className="flex items-center gap-2">
-              <Phone className="h-4 w-4" />
-              <span>{profile.contact.phone}</span>
+              <a 
+                href={`mailto:${profile.contact.email}`}
+                className="hover:text-black transition-colors duration-200"
+              >
+                {profile.contact.email}
+              </a>
             </div>
           </div>
 

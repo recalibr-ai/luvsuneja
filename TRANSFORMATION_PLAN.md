@@ -23,7 +23,7 @@ Based on 2025 industry standards, the optimal architecture uses:
 ```
 src/content/
 ├── blog/
-│   ├── 2024-07-27-ai-is-now.md        # Date-based slugs (2025 best practice)
+│   ├── 2025-07-27-ai-is-now.md        # Date-based slugs (2025 best practice)
 │   ├── 2024-12-10-mlops-scale.md
 │   └── index.js                       # Auto-export all posts
 ├── data/

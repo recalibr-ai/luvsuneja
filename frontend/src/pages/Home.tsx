@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import { personalInfo, featuredProjects, services, blogPosts } from '../data/mock';
-import { ExternalLink, Calendar, Clock, ArrowRight, Award, Users, DollarSign, Target } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, Award, DollarSign, Target, Crown } from 'lucide-react';
 import { PersonalInfo, Project, Service, BlogPostSummary, Achievement } from '../types';
 
 const Home: FC = () => {
@@ -59,7 +59,7 @@ const Home: FC = () => {
                   {index === 0 && <Award className="h-8 w-8 text-white" />}
                   {index === 1 && <Target className="h-8 w-8 text-white" />}
                   {index === 2 && <DollarSign className="h-8 w-8 text-white" />}
-                  {index === 3 && <Users className="h-8 w-8 text-white" />}
+                  {index === 3 && <Crown className="h-8 w-8 text-white" />}
                 </div>
                 <h3 className="text-lg font-normal text-black mb-2">
                   {achievement.title}
@@ -93,7 +93,6 @@ const Home: FC = () => {
                       <span className="text-xs uppercase tracking-wider text-gray-500">
                         {project.category}
                       </span>
-                      <ExternalLink className="h-5 w-5 text-gray-400 group-hover:text-black transition-colors duration-300" />
                     </div>
                     
                     <h3 className="text-xl lg:text-2xl font-light text-black mb-4">
@@ -225,16 +224,18 @@ const Home: FC = () => {
             
             <div className="flex flex-col sm:flex-row gap-6 items-center justify-center">
               <a 
-                href={`mailto:${profile.contact.email}`}
+                href={profile.contact.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white text-black px-8 py-3 font-normal hover:bg-gray-100 transition-all duration-300 hover:scale-105"
               >
-                {profile.contact.email}
+                Book Free 30-Min Consultation
               </a>
               <a 
-                href={`tel:${profile.contact.phone}`}
+                href={`mailto:${profile.contact.email}`}
                 className="px-8 py-3 font-normal border border-white hover:bg-white hover:text-black transition-all duration-300 hover:scale-105"
               >
-                {profile.contact.phone}
+                {profile.contact.email}
               </a>
             </div>
           </div>
