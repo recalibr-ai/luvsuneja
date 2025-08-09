@@ -2,17 +2,15 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import LoadingSpinner from '../components/LoadingSpinner';
-import ErrorMessage from '../components/ErrorMessage';
-import { useBlogPosts, useProjects, useServices, useProfile } from '../hooks/useAPI';
+import { personalInfo, featuredProjects, services, blogPosts } from '../data/mock';
 import { ExternalLink, Calendar, Clock, ArrowRight, Award, Users, DollarSign, Target } from 'lucide-react';
 
 const Home = () => {
-  // Fetch data from backend APIs
-  const { data: profile, loading: profileLoading, error: profileError, refetch: refetchProfile } = useProfile();
-  const { data: projects, loading: projectsLoading, error: projectsError, refetch: refetchProjects } = useProjects();
-  const { data: services, loading: servicesLoading, error: servicesError, refetch: refetchServices } = useServices();
-  const { data: blogPosts, loading: blogLoading, error: blogError, refetch: refetchBlog } = useBlogPosts();
+  // Use static data instead of API calls
+  const profile = personalInfo;
+  const projects = featuredProjects;
+  const servicesData = services;
+  const blogData = blogPosts;
 
   // Mock achievements data (static content)
   const achievements = [
@@ -34,32 +32,6 @@ const Home = () => {
     }
   ];
 
-  // Loading state for critical sections
-  if (profileLoading) {
-    return (
-      <div className="min-h-screen bg-white">
-        <Header />
-        <div className="flex items-center justify-center min-h-screen">
-          <LoadingSpinner size="large" />
-        </div>
-      </div>
-    );
-  }
-
-  // Error state for critical data
-  if (profileError) {
-    return (
-      <div className="min-h-screen bg-white">
-        <Header />
-        <div className="flex items-center justify-center min-h-screen">
-          <ErrorMessage 
-            message="Failed to load profile information. Please try again." 
-            onRetry={refetchProfile}
-          />
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -74,7 +46,7 @@ const Home = () => {
               About
             </h2>
             <p className="text-lg lg:text-xl text-gray-600 font-light leading-relaxed">
-              {profile?.bio || 'Loading biography...'}
+              {profile.bio}
             </p>
           </div>
 
@@ -112,18 +84,8 @@ const Home = () => {
             </p>
           </div>
 
-          {projectsLoading ? (
-            <div className="flex justify-center py-12">
-              <LoadingSpinner size="large" />
-            </div>
-          ) : projectsError ? (
-            <ErrorMessage 
-              message="Failed to load projects. Please try again." 
-              onRetry={refetchProjects}
-            />
-          ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-              {projects?.map((project) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            {projects.map((project) => (
                 <div key={project.id} className="group">
                   <div className="bg-gray-50 p-8 lg:p-10 hover:bg-gray-100 transition-all duration-300 hover:shadow-lg">
                     <div className="flex items-center justify-between mb-6">
@@ -161,7 +123,6 @@ const Home = () => {
                 </div>
               ))}
             </div>
-          )}
         </div>
       </section>
 
@@ -177,18 +138,8 @@ const Home = () => {
             </p>
           </div>
 
-          {servicesLoading ? (
-            <div className="flex justify-center py-12">
-              <LoadingSpinner size="large" />
-            </div>
-          ) : servicesError ? (
-            <ErrorMessage 
-              message="Failed to load services. Please try again." 
-              onRetry={refetchServices}
-            />
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {services?.map((service) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {servicesData.map((service) => (
                 <div key={service.id} className="bg-white p-8 lg:p-10 hover:shadow-md transition-all duration-300">
                   <h3 className="text-xl lg:text-2xl font-light text-black mb-4">
                     {service.title}
@@ -207,7 +158,6 @@ const Home = () => {
                 </div>
               ))}
             </div>
-          )}
         </div>
       </section>
 
@@ -223,18 +173,8 @@ const Home = () => {
             </p>
           </div>
 
-          {blogLoading ? (
-            <div className="flex justify-center py-12">
-              <LoadingSpinner size="large" />
-            </div>
-          ) : blogError ? (
-            <ErrorMessage 
-              message="Failed to load blog posts. Please try again." 
-              onRetry={refetchBlog}
-            />
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts?.map((post) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogData.map((post) => (
                 <Link 
                   key={post.id} 
                   to={`/blog/${post.id}`}
@@ -268,7 +208,6 @@ const Home = () => {
                 </Link>
               ))}
             </div>
-          )}
         </div>
       </section>
 
@@ -285,16 +224,16 @@ const Home = () => {
             
             <div className="flex flex-col sm:flex-row gap-6 items-center justify-center">
               <a 
-                href={`mailto:${profile?.email || 'luvsuneja@gmail.com'}`}
+                href={`mailto:${profile.email}`}
                 className="bg-white text-black px-8 py-3 font-normal hover:bg-gray-100 transition-all duration-300 hover:scale-105"
               >
-                {profile?.email || 'luvsuneja@gmail.com'}
+                {profile.email}
               </a>
               <a 
-                href={`tel:${profile?.phone || '+971 50 952 8461'}`}
+                href={`tel:${profile.phone}`}
                 className="px-8 py-3 font-normal border border-white hover:bg-white hover:text-black transition-all duration-300 hover:scale-105"
               >
-                {profile?.phone || '+971 50 952 8461'}
+                {profile.phone}
               </a>
             </div>
           </div>
@@ -306,10 +245,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-sm text-gray-400 mb-4 md:mb-0">
-              © 2024 {profile?.name || 'Luv Suneja'}. All rights reserved.
+              © 2024 {profile.name}. All rights reserved.
             </div>
             <div className="text-sm text-gray-400">
-              {profile?.location || 'Dubai, UAE'} • {profile?.title || 'Senior Tech Leader & AI Strategist'}
+              {profile.location} • {profile.title}
             </div>
           </div>
         </div>
@@ -317,14 +256,5 @@ const Home = () => {
     </div>
   );
 };
-
-export default Home;
-
-const Home = () => {
-  // Fetch data from backend APIs
-  const { data: profile, loading: profileLoading, error: profileError, refetch: refetchProfile } = useProfile();
-  const { data: projects, loading: projectsLoading, error: projectsError, refetch: refetchProjects } = useProjects();
-  const { data: services, loading: servicesLoading, error: servicesError, refetch: refetchServices } = useServices();
-  const { data: blogPosts, loading: blogLoading, error: blogError, refetch: refetchBlog } = useBlogPosts();
 
 export default Home;
