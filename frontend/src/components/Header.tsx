@@ -1,5 +1,6 @@
 import { useState, useEffect, FC } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { HeaderProps, NavigationItem } from '../types';
 
 const Header: FC<HeaderProps> = ({ 
@@ -58,9 +59,12 @@ const Header: FC<HeaderProps> = ({
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="text-xl lg:text-2xl font-light text-black">
+            <Link 
+              to="/" 
+              className="text-xl lg:text-2xl font-light text-black hover:text-gray-700 transition-colors duration-200"
+            >
               Luv Suneja
-            </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
