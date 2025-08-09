@@ -148,7 +148,11 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <article key={post.id} className="group cursor-pointer">
+              <Link 
+                key={post.id} 
+                to={`/blog/${post.id}`}
+                className="group cursor-pointer block"
+              >
                 <div className="bg-gray-50 p-6 lg:p-8 hover:bg-gray-100 transition-all duration-300 h-full">
                   <div className="flex items-center gap-4 mb-4 text-xs uppercase tracking-wider text-gray-500">
                     <span>{post.category}</span>
@@ -174,7 +178,7 @@ const Home = () => {
                     <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-300" />
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
