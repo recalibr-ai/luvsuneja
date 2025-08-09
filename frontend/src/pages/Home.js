@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import { personalInfo, featuredProjects, services, blogPosts, achievements, skills } from '../data/mock';
