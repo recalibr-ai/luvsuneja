@@ -150,7 +150,7 @@ const BlogPost: FC = () => {
                   <ExternalLink className="h-4 w-4" />
                 </a>
                 <a
-                  href="mailto:luvsuneja@gmail.com"
+                  href="mailto:luv@recalibr.ai"
                   className="px-8 py-3 font-normal text-black border border-gray-300 hover:border-black transition-all duration-200 hover:scale-105"
                 >
                   Send an Email

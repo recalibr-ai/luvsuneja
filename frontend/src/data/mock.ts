@@ -23,7 +23,7 @@ export const personalInfo: PersonalInfo = {
   teamLed: "7 Data Scientists + 2 Data Engineers",
   costSavings: "$1M+ Annual Savings",
   contact: {
-    email: "luvsuneja@gmail.com",
+    email: "luv@recalibr.ai",
     phone: "+971 50 952 8461",
     linkedin: "linkedin.com/in/luvsuneja",
     location: "Dubai, UAE"
