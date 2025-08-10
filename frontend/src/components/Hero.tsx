@@ -62,7 +62,6 @@ const Hero: FC<HeroProps> = ({
 
       return () => clearInterval(interval);
     }
-    return undefined;
   }, [isHovered, dynamicPhrases.length]);
 
   return (
@@ -144,21 +143,17 @@ const Hero: FC<HeroProps> = ({
             </div>
           </div>
 
-          {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center">
-            <button
-              onClick={scrollToProjects}
+          {/* CTA button */}
+          <div className="flex justify-center">
+            <a
+              href={profile.contact.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group bg-black text-white px-8 py-3 text-sm font-normal hover:bg-gray-800 transition-all duration-300 hover:scale-105 flex items-center gap-2"
             >
-              View My Work
+              Book Free 30-Min Consultation
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
-            <button
-              onClick={scrollToContact}
-              className="px-8 py-3 text-sm font-normal text-black border border-gray-300 hover:border-black transition-all duration-300 hover:scale-105"
-            >
-              Let's Connect
-            </button>
+            </a>
           </div>
         </div>
       </div>

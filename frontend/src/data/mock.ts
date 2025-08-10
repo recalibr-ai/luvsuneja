@@ -12,15 +12,16 @@ import type {
   Education,
   ProjectCategory,
   BlogCategory,
+  Testimonial,
 } from '../types';
 
 export const personalInfo: PersonalInfo = {
   name: "Luv Suneja",
-  title: "Applied AI Consultant",
+  title: "Applied AI Consultant & Founder, Recalibr.ai",
   subtitle: "Recalibrating Business Excellence for the AI-Driven Future",
-  bio: "Data Professional with 7+ years of experience, skilled in AI, MLOps, Data Engineering and CI/CD. Proven track record in designing and implementing AI and ML solutions in the logistics and supply chain industry, with strategic leadership experience in data platform transformation.",
+  bio: "Founder of Recalibr.ai and former senior member of the Aramex data science team with 7+ years of experience in AI strategy, machine learning, and intelligent automation. Led AI initiatives and business transformation projects in the logistics and supply chain industry, with deep expertise in GenAI applications and strategic AI implementation.",
   experience: "7+ Years",
-  teamLed: "Independent Consultant",
+  teamLed: "Founder & AI Expert",
   costSavings: "$1M+ Annual Savings",
   contact: {
     email: "luv@recalibr.ai",
@@ -37,7 +38,7 @@ export const featuredProjects: Project[] = [
     title: "AI-Powered BI Assistant",
     description: "Created NLP-to-SQL chat using RAG and OpenAI models, transforming user chat into actionable business insights. Boosted productivity by integrating into Teams via Power Automate.",
     impact: "Enhanced user experience with context memory & RBAC security",
-    techStack: ["React", "Python", "Langchain", "Weaviate", "Lambda", "PostgreSQL", "RAG", "OpenAI", "FastAPI"],
+    techStack: ["Python", "OpenAI", "RAG", "AWS Lambda"],
     category: "AI/ML" as ProjectCategory
   },
   {
@@ -45,15 +46,15 @@ export const featuredProjects: Project[] = [
     title: "Data Engineering In-house Transition",
     description: "Transitioned from vendor to in-house data engineering & MLOps team, saving USD 877,670 annually. Spearheaded end-to-end pipeline management and infrastructure.",
     impact: "40% efficiency improvement through successful insourcing",
-    techStack: ["Python", "AWS", "ETL", "MLOps", "Monitoring", "Cost Optimization"],
+    techStack: ["Python", "AWS", "MLOps", "ETL"],
     category: "MLOps" as ProjectCategory
   },
   {
     id: "geocoding-system",
     title: "Geocoding and Sequencing System",
-    description: "Developed CNN-based impersonal geocoder and address completion API using hierarchical clustering. Built end-to-end event-driven microservice architecture.",
+    description: "Developed deep learning based geocoder and address completion API. Built end-to-end event-driven microservice architecture.",
     impact: "Core service supporting sorting, sequencing & route optimization",
-    techStack: ["CNN", "Keras", "API Gateway", "ECS Fargate", "EventBridge", "Docker", "CloudFormation"],
+    techStack: ["Deep Learning", "AWS", "Docker", "API Gateway"],
     category: "AI/ML" as ProjectCategory
   },
   {
@@ -61,7 +62,7 @@ export const featuredProjects: Project[] = [
     title: "HS Code Classification System",
     description: "Built deep learning model to predict HS codes for incoming shipments, enabling automated customs duty calculation. Processes over 1 million requests annually.",
     impact: "Significantly reduced customs processing time",
-    techStack: ["Python", "Keras", "CNN", "SageMaker", "Lambda", "API Gateway"],
+    techStack: ["Python", "Deep Learning", "AWS SageMaker", "API Gateway"],
     category: "AI/ML" as ProjectCategory
   }
 ];
@@ -93,13 +94,49 @@ export const services: Service[] = [
   }
 ];
 
+export const testimonials: Testimonial[] = [
+  {
+    id: "testimonial-1",
+    name: "Krishna Kumar",
+    title: "Global Digital & Technology Director- Architecture, Integration and Data",
+    company: "Aramex",
+    content: "In the short time that I worked with Luv, he has come across as a mature IT professional with rounded IT skills specifically in Data Management and Program Management. He has an uncanny ability to create structured, high quality and timely output with no supervision or guidance. This coupled with his strong conceptualization and articulation skills makes him a very valuable asset.",
+    rating: 5,
+    date: "2024-08-15",
+    featured: true,
+    linkedinUrl: "https://www.linkedin.com/in/krishna-kumar-7893484/"
+  },
+  {
+    id: "testimonial-2", 
+    name: "Mohit Rajpoot",
+    title: "Applied Science Specialist",
+    company: "G42",
+    content: "Working alongside Luv for the past five years has been both a pleasure and an invaluable learning experience. Luv is a professional who consistently demonstrates impressive technical prowess and a remarkable dedication to their work. Embracing new technologies and challenging the status quo seems to be second nature for Luv, which has greatly accelerated our project timelines and created an environment of continuous learning and innovation within our team. Their proactiveness when it comes to responsibility is something I greatly admire. Whether it's leading complex tasks or taking the initiative in difficult situations, Luv handles it all with commendable diligence and patience. Above all, what sets Luv apart is his eagerness to learn and his ability to work seamlessly in a team. His curiosity and drive to grow, paired with his strong team spirit, not only foster an atmosphere of mutual development but also make him a substantial asset to any team. For those who are looking for a reliable, adaptive, and skilled professional who flourishes in a collaborative environment, I wholeheartedly recommend Luv. His exceptional skill set, dedication, and approach to learning new technologies make him an outstanding professional to work with.",
+    rating: 5,
+    date: "2024-07-20",
+    featured: true,
+    linkedinUrl: "https://www.linkedin.com/in/mohitt008/"
+  },
+  {
+    id: "testimonial-3",
+    name: "Nilotpal Sinha",
+    title: "Director of AI Engineering",
+    company: "Multiverse Computing",
+    content: "Collaborating with Luv on the Delivery Risk project was impressive. His blend of business acumen and technical expertise, particularly in AWS, proved invaluable. Luv consistently offered innovative solutions that drove our project forward. His willingness to help others and his cooperative spirit made him an essential team member. Luv's ability to bridge complex technical concepts with business needs sets him apart. I highly recommend Luv for any challenging role in tech leadership or AWS-related projects.",
+    rating: 5,
+    date: "2024-06-10",
+    featured: true,
+    linkedinUrl: "https://www.linkedin.com/in/nilotpalsinha/"
+  }
+];
+
 export const blogPosts: BlogPost[] = [
   {
     id: "ai-is-now",
     title: "AI Isn't the Future—It's the Now. And Your Competitors Are Already Winning With It",
     excerpt: "Market research shows companies integrating AI into workflows gain up to 40% efficiency and 20–30% lower costs within a year. Yet only 1% of enterprises report achieving true AI maturity.",
     category: "Strategic Insights" as BlogCategory,
-    readTime: "8 min read",
+    readTime: "3 min read",
     publishDate: "2025-07-27",
     featured: true,
     content: `Every minute your organization delays meaningful AI adoption, you're losing efficiency, margin, and market share. Market research shows companies integrating AI into workflows gain **up to 40% efficiency** and **20–30% lower costs** within a year. Yet only **1% of enterprises** report achieving true AI maturity—meaning scaled, embedded solutions—while **78%** still use AI in only isolated functions.
@@ -153,26 +190,6 @@ You need:
 - A lightweight, API-first solution
 - Deep industry insight
 - Right partners`
-  },
-  {
-    id: "mlops-at-scale",
-    title: "MLOps at Scale: Lessons from $1M+ Cost Savings",
-    excerpt: "A detailed case study on transitioning from vendor-dependent to in-house MLOps, including challenges, solutions, and measurable business impact.",
-    category: "Case Study" as BlogCategory,
-    readTime: "12 min read",
-    publishDate: "2024-12-10",
-    featured: true,
-    content: "A detailed case study on transitioning from vendor-dependent to in-house MLOps, including challenges, solutions, and measurable business impact. Content will be expanded in future iterations."
-  },
-  {
-    id: "building-ai-teams",
-    title: "Building World-Class AI Teams: A Leadership Perspective",
-    excerpt: "Strategic insights on hiring, scaling, and leading AI teams from startup to enterprise. Real experiences from growing a team from 2 to 9 members.",
-    category: "Leadership" as BlogCategory,
-    readTime: "6 min read",
-    publishDate: "2024-12-05",
-    featured: false,
-    content: "Strategic insights on hiring, scaling, and leading AI teams from startup to enterprise. Real experiences from growing a team from 2 to 9 members. Content will be expanded in future iterations."
   }
 ];
 
