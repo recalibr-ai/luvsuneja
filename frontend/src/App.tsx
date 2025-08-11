@@ -7,7 +7,7 @@ import BlogPost from "./pages/BlogPost";
 const App: FC = () => {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/luvsuneja">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog/:id" element={<BlogPost />} />
