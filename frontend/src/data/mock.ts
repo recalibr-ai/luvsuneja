@@ -101,8 +101,6 @@ export const testimonials: Testimonial[] = [
     title: "Global Digital & Technology Director- Architecture, Integration and Data",
     company: "Aramex",
     content: "In the short time that I worked with Luv, he has come across as a mature IT professional with rounded IT skills specifically in Data Management and Program Management. He has an uncanny ability to create structured, high quality and timely output with no supervision or guidance. This coupled with his strong conceptualization and articulation skills makes him a very valuable asset.",
-    rating: 5,
-    date: "2024-08-15",
     featured: true,
     linkedinUrl: "https://www.linkedin.com/in/krishna-kumar-7893484/"
   },
@@ -112,8 +110,6 @@ export const testimonials: Testimonial[] = [
     title: "Applied Science Specialist",
     company: "G42",
     content: "Working alongside Luv for the past five years has been both a pleasure and an invaluable learning experience. Luv is a professional who consistently demonstrates impressive technical prowess and a remarkable dedication to their work. Embracing new technologies and challenging the status quo seems to be second nature for Luv, which has greatly accelerated our project timelines and created an environment of continuous learning and innovation within our team. Their proactiveness when it comes to responsibility is something I greatly admire. Whether it's leading complex tasks or taking the initiative in difficult situations, Luv handles it all with commendable diligence and patience. Above all, what sets Luv apart is his eagerness to learn and his ability to work seamlessly in a team. His curiosity and drive to grow, paired with his strong team spirit, not only foster an atmosphere of mutual development but also make him a substantial asset to any team. For those who are looking for a reliable, adaptive, and skilled professional who flourishes in a collaborative environment, I wholeheartedly recommend Luv. His exceptional skill set, dedication, and approach to learning new technologies make him an outstanding professional to work with.",
-    rating: 5,
-    date: "2024-07-20",
     featured: true,
     linkedinUrl: "https://www.linkedin.com/in/mohitt008/"
   },
@@ -123,8 +119,6 @@ export const testimonials: Testimonial[] = [
     title: "Director of AI Engineering",
     company: "Multiverse Computing",
     content: "Collaborating with Luv on the Delivery Risk project was impressive. His blend of business acumen and technical expertise, particularly in AWS, proved invaluable. Luv consistently offered innovative solutions that drove our project forward. His willingness to help others and his cooperative spirit made him an essential team member. Luv's ability to bridge complex technical concepts with business needs sets him apart. I highly recommend Luv for any challenging role in tech leadership or AWS-related projects.",
-    rating: 5,
-    date: "2024-06-10",
     featured: true,
     linkedinUrl: "https://www.linkedin.com/in/nilotpalsinha/"
   }
