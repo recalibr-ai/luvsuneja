@@ -53,7 +53,7 @@ export const featuredProjects: Project[] = [
     id: "geocoding-system",
     title: "Geocoding and Sequencing System",
     description: "At Aramex, solved critical last-mile delivery challenges in GCC region by developing custom deep learning geocoder and address completion system, enabling accurate routing despite incomplete address data.",
-    impact: "Core enterprise service supporting sorting, sequencing & route optimization",
+    impact: "Core enterprise service supporting sorting, sequencing and route optimization.",
     techStack: ["Deep Learning", "AWS", "Docker", "API Gateway"],
     category: "AI/ML" as ProjectCategory
   },
@@ -69,28 +69,43 @@ export const featuredProjects: Project[] = [
 
 export const services: Service[] = [
   {
-    id: "ai-ml-consulting",
-    title: "AI/ML Consulting & Strategy",
-    description: "End-to-end AI strategy development, from ideation to implementation. Help organizations identify AI opportunities and create actionable roadmaps.",
-    features: ["Strategic Planning", "ROI Analysis", "Technology Selection", "Implementation Roadmap"]
+    id: "strategic-consulting",
+    title: "AI/ML Strategy & Technology Consulting",
+    description: "End-to-end strategic guidance from AI/ML roadmapping to technology transformations. Proven track record delivering $1M+ cost savings through strategic technology decisions, vendor transitions, and organizational change.",
+    features: ["AI Strategy & Roadmapping", 
+      "ROI Analysis & Business Cases", 
+      "Technology Selection & Assessment", 
+      "Fractional AI Head",
+      "Build vs Buy Analysis", 
+      "Vendor Evaluation & Transition Planning", 
+      "Cost Optimization Strategy"]
   },
   {
     id: "implementation",
     title: "Implementation & Delivery",
     description: "Hands-on implementation of GenAI applications, AI/ML solutions, agentic AI systems, MLOps pipelines, and data engineering. From proof-of-concept to production-ready systems.",
-    features: ["GenAI & Agentic AI", "Machine Learning and Deep Learning", "MLOps", "Model Deployment", "Model and System Monitoring"]
+    features: ["GenAI & Agentic AI",
+      "AI Evals and Monitoring",
+       "Machine Learning and Deep Learning", 
+       "MLOps", 
+       "Building data pipelines",
+       "Model Deployment",
+       "API Development & Integration",
+       "Cloud Architecture & Infrastructure"
+      ]
   },
   {
-    id: "advisory",
-    title: "Technical Advisory",
-    description: "Provide expert guidance on complex data and AI initiatives. Help leadership make informed decisions on technology investments and platform transformations.",
-    features: ["Architecture Review", "Technology Assessment", "Risk Mitigation", "Vendor Evaluation"]
-  },
-  {
-    id: "team-building",
-    title: "Team Building & Best Practices",
-    description: "Build high-performing data teams and establish best practices. Mentoring, hiring strategies, and organizational transformation for data-driven culture.",
-    features: ["Team Scaling", "Best Practices", "Mentoring", "Process Optimization"]
+    id: "team-organizational-transformation",
+    title: "Team Building & Organizational Transformation",
+    description: "Comprehensive team and organizational development from tactical mentoring to strategic transformation. Proven experience growing teams while establishing best practices and delivering measurable business impact.",
+    features: ["Team Scaling Strategy", 
+      "Hiring & Capability Development", 
+      "Mentoring & Coaching", 
+      "Best Practices Implementation", 
+      "In-house vs Outsourcing Decisions", 
+      "Organizational Change Management", 
+      "Process Optimization", 
+      "Performance Metrics & KPIs"]
   }
 ];
 
