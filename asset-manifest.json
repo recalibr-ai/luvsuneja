@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/luvsuneja/static/css/main.2e5872af.css",
-    "main.js": "/luvsuneja/static/js/main.aba3bc7b.js",
-    "index.html": "/luvsuneja/index.html",
-    "main.2e5872af.css.map": "/luvsuneja/static/css/main.2e5872af.css.map",
-    "main.aba3bc7b.js.map": "/luvsuneja/static/js/main.aba3bc7b.js.map"
+    "main.css": "/profile-website/static/css/main.2e5872af.css",
+    "main.js": "/profile-website/static/js/main.aba3bc7b.js",
+    "index.html": "/profile-website/index.html",
+    "main.2e5872af.css.map": "/profile-website/static/css/main.2e5872af.css.map",
+    "main.aba3bc7b.js.map": "/profile-website/static/js/main.aba3bc7b.js.map"
   },
   "entrypoints": [
     "static/css/main.2e5872af.css",
