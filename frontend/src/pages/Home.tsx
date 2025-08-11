@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import { personalInfo, featuredProjects, services, blogPosts, testimonials } from '../data/mock';
-import { Calendar, Clock, ArrowRight, Award, DollarSign, Target, Crown, Linkedin } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, Award, DollarSign, Target, Crown } from 'lucide-react';
 import { PersonalInfo, Project, Service, BlogPostSummary, Achievement, Testimonial } from '../types';
 
 const Home: FC = () => {
@@ -35,16 +35,16 @@ const Home: FC = () => {
   // Mock achievements data (static content)
   const achievements: Achievement[] = [
     {
-      title: "Patent Filed",
-      description: "Address prediction system for GCC region (Patent Pending)"
-    },
-    {
-      title: "AWS re:Invent 2019",
-      description: "Showcased innovative ML models for logistics optimization"
+      title: "Patent Pending",
+      description: "Address prediction system for GCC region - innovative logistics solution"
     },
     {
       title: "Cost Optimization",
       description: "Led initiatives saving $1M+ annually through strategic transformations"
+    },
+    {
+      title: "AWS re:Invent 2019",
+      description: "Showcased innovative ML models for logistics optimization at AWS flagship conference"
     },
     {
       title: "Team Leadership",

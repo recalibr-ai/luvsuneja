@@ -29,8 +29,8 @@ Transform portfolio from "employee showcase" to "executive-ready consultant" tha
 - [ ] **AWS re:Invent**: Expand description, add year and context ("Showcased at AWS re:Invent 2019")
 
 ## 1.3 Project Reframing
-- [ ] **Business Impact First**: Lead each project with ROI/business outcome
-- [ ] **Aramex Context**: Add "At Aramex" to each project description
+- [x] **Business Impact First**: Lead each project with ROI/business outcome ✅ **DONE**
+- [x] **Aramex Context**: Add "At Aramex" to each project description ✅ **DONE**
 - [x] **Simplified Tech Stack**: Reduce to 3-4 most relevant technologies per project ✅ **DONE**
 
 ### Example Reframe:

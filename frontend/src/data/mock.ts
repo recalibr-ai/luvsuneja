@@ -36,32 +36,32 @@ export const featuredProjects: Project[] = [
   {
     id: "ai-bi-assistant",
     title: "AI-Powered BI Assistant",
-    description: "Created NLP-to-SQL chat using RAG and OpenAI models, transforming user chat into actionable business insights. Boosted productivity by integrating into Teams via Power Automate.",
-    impact: "Enhanced user experience with context memory & RBAC security",
+    description: "At Aramex, transformed business intelligence accessibility by enabling natural language queries through Teams using GenAI, eliminating SQL knowledge barriers for business users using RAG and OpenAI models.",
+    impact: "Enabled leadership team to access business insights readily through natural language.",
     techStack: ["Python", "OpenAI", "RAG", "AWS Lambda"],
     category: "AI/ML" as ProjectCategory
   },
   {
     id: "data-engineering-transition",
     title: "Data Engineering In-house Transition",
-    description: "Transitioned from vendor to in-house data engineering & MLOps team, saving USD 877,670 annually. Spearheaded end-to-end pipeline management and infrastructure.",
-    impact: "40% efficiency improvement through successful insourcing",
+    description: "At Aramex, delivered more than USD 1 million annual cost savings by transitioning from vendor to in-house data engineering & MLOps team, while gaining full control over pipeline management and infrastructure and enhancing project delivery efficiency by 40%.",
+    impact: "Cost savings exceeding USD 1 million through successful insourcing.",
     techStack: ["Python", "AWS", "MLOps", "ETL"],
     category: "MLOps" as ProjectCategory
   },
   {
     id: "geocoding-system",
     title: "Geocoding and Sequencing System",
-    description: "Developed deep learning based geocoder and address completion API. Built end-to-end event-driven microservice architecture.",
-    impact: "Core service supporting sorting, sequencing & route optimization",
+    description: "At Aramex, solved critical last-mile delivery challenges in GCC region by developing custom deep learning geocoder and address completion system, enabling accurate routing despite incomplete address data.",
+    impact: "Core enterprise service supporting sorting, sequencing & route optimization",
     techStack: ["Deep Learning", "AWS", "Docker", "API Gateway"],
     category: "AI/ML" as ProjectCategory
   },
   {
     id: "hs-code-classification",
     title: "HS Code Classification System",
-    description: "Built deep learning model to predict HS codes for incoming shipments, enabling automated customs duty calculation. Processes over 1 million requests annually.",
-    impact: "Significantly reduced customs processing time",
+    description: "At Aramex, automated customs clearance for 1M+ annual shipments by building deep learning HS code classification system, drastically reducing manual processing and customs delays.",
+    impact: "Automated customs classification reducing processing time significantly and lowering costs.",
     techStack: ["Python", "Deep Learning", "AWS SageMaker", "API Gateway"],
     category: "AI/ML" as ProjectCategory
   }
@@ -78,7 +78,7 @@ export const services: Service[] = [
     id: "implementation",
     title: "Implementation & Delivery",
     description: "Hands-on implementation of GenAI applications, AI/ML solutions, agentic AI systems, MLOps pipelines, and data engineering. From proof-of-concept to production-ready systems.",
-    features: ["GenAI & Agentic AI", "MLOps Setup", "Pipeline Development", "Model Deployment", "Monitoring Systems"]
+    features: ["GenAI & Agentic AI", "Machine Learning and Deep Learning", "MLOps", "Model Deployment", "Model and System Monitoring"]
   },
   {
     id: "advisory",

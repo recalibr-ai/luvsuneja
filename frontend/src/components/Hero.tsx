@@ -5,8 +5,6 @@ import { HeroProps, PersonalInfo } from '../types';
 
 const Hero: FC<HeroProps> = ({ 
   personalInfo: providedPersonalInfo,
-  onViewWorkClick,
-  onConnectClick,
   className = '',
   showAnimation = true
 }) => {
@@ -25,27 +23,6 @@ const Hero: FC<HeroProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const scrollToProjects = (): void => {
-    if (onViewWorkClick) {
-      onViewWorkClick({} as React.MouseEvent<HTMLButtonElement>);
-      return;
-    }
-    const element = document.querySelector('#projects');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToContact = (): void => {
-    if (onConnectClick) {
-      onConnectClick({} as React.MouseEvent<HTMLButtonElement>);
-      return;
-    }
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   // Rotation effect for dynamic phrases
   useEffect(() => {
@@ -62,6 +39,7 @@ const Hero: FC<HeroProps> = ({
 
       return () => clearInterval(interval);
     }
+    return () => {}; // Return cleanup function for all paths
   }, [isHovered, dynamicPhrases.length]);
 
   return (
