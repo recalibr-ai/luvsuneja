@@ -180,17 +180,9 @@ const Home: FC = () => {
                       {project.description}
                     </p>
                     
-                    <p className="text-sm text-black font-medium mb-6">
+                    <p className="text-sm text-black font-medium">
                       Impact: {project.impact}
                     </p>
-                    
-                    <div className="flex flex-wrap gap-2">
-                      {project.techStack?.slice(0, 5).map((tech) => (
-                        <span key={tech} className="text-xs px-3 py-1 bg-white text-gray-600 border border-gray-200">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </div>
               ))}
@@ -210,7 +202,7 @@ const Home: FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicesData.map((service) => (
                 <div key={service.id} className="bg-white p-8 lg:p-10 hover:shadow-md transition-all duration-300">
                   <h3 className="text-xl lg:text-2xl font-light text-black mb-4">
