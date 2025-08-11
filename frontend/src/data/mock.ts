@@ -22,7 +22,7 @@ export const personalInfo: PersonalInfo = {
   bio: "Founder of Recalibr.ai and former senior member of the Aramex data science team with 7+ years of experience in AI strategy, machine learning, and intelligent automation. Led AI initiatives and business transformation projects in the logistics and supply chain industry, with deep expertise in GenAI applications and strategic AI implementation.",
   experience: "7+ Years",
   teamLed: "Founder & AI Expert",
-  costSavings: "$1M+ Annual Savings",
+  costSavings: "$1M+ Annual",
   contact: {
     email: "luv@recalibr.ai",
     phone: "",
