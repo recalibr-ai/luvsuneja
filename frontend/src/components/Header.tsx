@@ -86,12 +86,14 @@ const Header: FC<HeaderProps> = ({
                 {ctaButton.label}
               </button>
             ) : (
-              <button
-                onClick={() => scrollToSection('#contact')}
-                className="bg-black text-white px-6 py-2 text-sm font-normal hover:bg-gray-800 transition-all duration-200 hover:scale-105"
+              <a
+                href="https://cal.com/luv-suneja"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-black text-white px-6 py-2 text-sm font-normal hover:bg-gray-800 transition-all duration-200 hover:scale-105 inline-block"
               >
-                Get In Touch
-              </button>
+                Book Free Call
+              </a>
             )}
           </nav>
 
@@ -129,12 +131,14 @@ const Header: FC<HeaderProps> = ({
                   {ctaButton.label}
                 </button>
               ) : (
-                <button
-                  onClick={() => scrollToSection('#contact')}
-                  className="w-full bg-black text-white px-6 py-3 text-sm font-normal hover:bg-gray-800 transition-colors duration-200 mt-4"
+                <a
+                  href="https://cal.com/luv-suneja"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-black text-white px-6 py-3 text-sm font-normal hover:bg-gray-800 transition-colors duration-200 mt-4 block text-center"
                 >
-                  Get In Touch
-                </button>
+                  Book Free Call
+                </a>
               )}
             </div>
           </div>
