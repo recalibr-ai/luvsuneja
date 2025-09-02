@@ -24,11 +24,11 @@ const Header: FC<HeaderProps> = ({
 
   // Use provided navigation items or default ones
   const navItems: NavigationItem[] = navigationItems || [
-    { label: 'About', href: '#about' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Services', href: '#services' },
-    { label: 'Blog', href: '#blog' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'About', href: '/#about' },
+    { label: 'Projects', href: '/#projects' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Contact', href: '/#contact' }
   ];
 
   const scrollToSection = (href: string): void => {
@@ -70,13 +70,23 @@ const Header: FC<HeaderProps> = ({
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={item.onClick || (() => scrollToSection(item.href))}
-                className="text-sm font-normal text-gray-700 hover:text-black transition-all duration-200 hover:-translate-y-0.5"
-              >
-                {item.label}
-              </button>
+              item.href.startsWith('/') ? (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="text-sm font-normal text-gray-700 hover:text-black transition-all duration-200 hover:-translate-y-0.5"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.label}
+                  onClick={item.onClick || (() => scrollToSection(item.href))}
+                  className="text-sm font-normal text-gray-700 hover:text-black transition-all duration-200 hover:-translate-y-0.5"
+                >
+                  {item.label}
+                </button>
+              )
             ))}
             {ctaButton ? (
               <button
@@ -115,13 +125,24 @@ const Header: FC<HeaderProps> = ({
           <div className="md:hidden bg-white border-t border-gray-100">
             <div className="px-4 py-4 space-y-4">
               {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={item.onClick || (() => scrollToSection(item.href))}
-                  className="block w-full text-left text-gray-700 hover:text-black transition-colors duration-200 py-2"
-                >
-                  {item.label}
-                </button>
+                item.href.startsWith('/') ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="block w-full text-left text-gray-700 hover:text-black transition-colors duration-200 py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.label}
+                    onClick={item.onClick || (() => scrollToSection(item.href))}
+                    className="block w-full text-left text-gray-700 hover:text-black transition-colors duration-200 py-2"
+                  >
+                    {item.label}
+                  </button>
+                )
               ))}
               {ctaButton ? (
                 <button

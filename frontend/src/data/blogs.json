@@ -1,0 +1,20 @@
+[
+  {
+    "id": "ai-is-now",
+    "slug": "ai-is-now",
+    "title": "AI Isn't the Future—It's the Now. And Your Competitors Are Already Winning With It",
+    "excerpt": "Market research shows companies integrating AI into workflows gain up to 40% efficiency and 20–30% lower costs within a year. Yet only 1% of enterprises report achieving true AI maturity.",
+    "date": "2025-07-27",
+    "category": "Strategic Insights",
+    "readTime": "3 min read"
+  },
+  {
+    "id": "the-power-of-pre-computation-in-frontend-development",
+    "slug": "the-power-of-pre-computation-in-frontend-development",
+    "title": "The Power of Pre-computation in Frontend Development",
+    "excerpt": "In the ever-evolving landscape of web development, the quest for performance is a constant. One of the most impactful strategies is pre-computation.",
+    "date": "2025-09-02",
+    "category": "Technical Deep Dive",
+    "readTime": "4 min read"
+  }
+]

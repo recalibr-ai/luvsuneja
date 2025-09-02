@@ -1,17 +1,29 @@
-import { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { FC, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import { personalInfo, featuredProjects, services, blogPosts, testimonials } from '../data/mock';
-import { Calendar, Clock, ArrowRight, Award, DollarSign, Target, Crown } from 'lucide-react';
-import { PersonalInfo, Project, Service, BlogPostSummary, Achievement, Testimonial } from '../types';
+import BlogPreview from '../components/BlogPreview';
+import Footer from '../components/Footer';
+import { personalInfo, featuredProjects, services, testimonials } from '../data/mock';
+import { ArrowRight, Award, DollarSign, Target, Crown } from 'lucide-react';
+import { PersonalInfo, Project, Service, Achievement, Testimonial } from '../types';
 
-const Home: FC = () => {
+  const Home: FC = () => {
+  const location = useLocation(); // Get current location
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]); // Re-run effect when location changes
   // Use static data instead of API calls
   const profile: PersonalInfo = personalInfo;
   const projects: Project[] = featuredProjects;
   const servicesData: Service[] = services;
-  const blogData: BlogPostSummary[] = blogPosts;
   const testimonialsData: Testimonial[] = testimonials;
   
   // State for expanded testimonials
@@ -226,54 +238,7 @@ const Home: FC = () => {
       </section>
 
       {/* Blog Preview Section */}
-      <section id="blog" className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-5xl font-light text-black mb-8 tracking-tight">
-              Latest Insights
-            </h2>
-            <p className="text-lg text-gray-600 font-light max-w-2xl mx-auto">
-              Technical deep-dives, case studies, and leadership perspectives
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogData.map((post) => (
-                <Link 
-                  key={post.id} 
-                  to={`/blog/${post.id}`}
-                  className="group cursor-pointer block"
-                >
-                  <div className="bg-gray-50 p-6 lg:p-8 hover:bg-gray-100 transition-all duration-300 h-full">
-                    <div className="flex items-center gap-4 mb-4 text-xs uppercase tracking-wider text-gray-500">
-                      <span>{post.category}</span>
-                      <div className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
-                        <span>{post.readTime}</span>
-                      </div>
-                    </div>
-                    
-                    <h3 className="text-lg lg:text-xl font-light text-black mb-4 group-hover:text-gray-700 transition-colors duration-300">
-                      {post.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                      {post.excerpt}
-                    </p>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1 text-xs text-gray-500">
-                        <Calendar className="h-3 w-3" />
-                        <span>{new Date(post.publishDate).toLocaleDateString()}</span>
-                      </div>
-                      <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-300" />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-        </div>
-      </section>
+      <BlogPreview />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 lg:py-28 bg-black text-white">
@@ -306,30 +271,7 @@ const Home: FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 bg-black text-white border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-sm text-gray-400 mb-4 md:mb-0">
-              © 2025 {profile.name}. All rights reserved.
-            </div>
-            <div className="flex items-center gap-6 text-sm text-gray-400">
-              <span>{profile.contact.location} • {profile.title}</span>
-              <a 
-                href="https://linkedin.com/in/luvsuneja"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors duration-200"
-                aria-label="LinkedIn Profile"
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer personalInfo={profile} />
     </div>
   );
 };
