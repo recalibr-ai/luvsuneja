@@ -6,15 +6,23 @@
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
       // https://github.com/rafrex/spa-github-pages
-      var segmentCount = 0;
+      // Modified to exclude static files
       var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+      var pathname = l.pathname;
+      
+      // Don't redirect if this looks like a static file request
+      var isStaticFile = /\.(md|txt|json|xml|pdf|jpg|png|gif|css|js|ico)$/i.test(pathname);
+      
+      if (!isStaticFile) {
+        var segmentCount = 0;
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+          l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        );
+      }
     </script>
   </head>
   <body>
