@@ -62,7 +62,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://recalibr-ai.github.io/luvsuneja",
+  "homepage": "https://recalibr-ai.github.io",
   "browserslist": {
     "production": [
       ">0.2%",
