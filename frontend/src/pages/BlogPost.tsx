@@ -17,7 +17,7 @@ const BlogPost: FC = () => {
   useEffect(() => {
     if (post) {
       // Remove frontmatter from content before rendering
-      fetch(`/content/${post.slug}.md`)
+      fetch(`${process.env.PUBLIC_URL || ''}/content/${post.slug}.mdown`)
         .then(res => {
             if (!res.ok) {
                 throw new Error(`Failed to fetch post: ${res.status} ${res.statusText}`);
