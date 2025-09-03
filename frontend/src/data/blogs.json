@@ -7,14 +7,5 @@
     "date": "2025-07-27",
     "category": "Strategic Insights",
     "readTime": "3 min read"
-  },
-  {
-    "id": "the-power-of-pre-computation-in-frontend-development",
-    "slug": "the-power-of-pre-computation-in-frontend-development",
-    "title": "The Power of Pre-computation in Frontend Development",
-    "excerpt": "In the ever-evolving landscape of web development, the quest for performance is a constant. One of the most impactful strategies is pre-computation.",
-    "date": "2025-09-02",
-    "category": "Technical Deep Dive",
-    "readTime": "4 min read"
   }
 ]
