@@ -17,10 +17,14 @@ const BlogPost: FC = () => {
   useEffect(() => {
     if (post) {
       // Remove frontmatter from content before rendering
-      fetch(`${process.env.PUBLIC_URL || ''}/blog/${post.slug}.md`)
+      const baseUrl = process.env.NODE_ENV === 'production' 
+        ? process.env.PUBLIC_URL || '' 
+        : `${window.location.origin}${process.env.PUBLIC_URL || ''}`;
+      
+      fetch(`${baseUrl}/blog/${post.slug}.md`)
         .then(res => {
             if (!res.ok) {
-                throw new Error('Failed to fetch post');
+                throw new Error(`Failed to fetch post: ${res.status} ${res.statusText}`);
             }
             return res.text();
         })
@@ -29,7 +33,7 @@ const BlogPost: FC = () => {
             setContent(body);
         })
         .catch(err => {
-            console.error(err);
+            console.error('Blog fetch error:', err);
             setContent('Failed to load post content.');
         });
     }
