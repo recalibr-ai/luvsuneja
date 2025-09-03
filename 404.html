@@ -14,7 +14,7 @@
       var isStaticFile = /\.(md|txt|json|xml|pdf|jpg|png|gif|css|js|ico)$/i.test(pathname);
       
       if (!isStaticFile) {
-        var segmentCount = 0;
+        var segmentCount = 1; // Account for /luvsuneja/ base path
         l.replace(
           l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
           l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
