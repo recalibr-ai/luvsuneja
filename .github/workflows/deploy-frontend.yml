@@ -32,6 +32,11 @@ jobs:
         working-directory: ./frontend
         run: npm ci
         
+      - name: Configure git
+        run: |
+          git config --global user.name 'Luv Suneja'
+          git config --global user.email 'luv@recalibr.ai'
+        
       - name: Deploy to GitHub Pages
         working-directory: ./frontend
         run: npm run deploy
