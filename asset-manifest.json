@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/luvsuneja/static/css/main.de92e433.css",
-    "main.js": "/luvsuneja/static/js/main.11a6cbe7.js",
+    "main.js": "/luvsuneja/static/js/main.e3fb964c.js",
     "index.html": "/luvsuneja/index.html",
     "main.de92e433.css.map": "/luvsuneja/static/css/main.de92e433.css.map",
-    "main.11a6cbe7.js.map": "/luvsuneja/static/js/main.11a6cbe7.js.map"
+    "main.e3fb964c.js.map": "/luvsuneja/static/js/main.e3fb964c.js.map"
   },
   "entrypoints": [
     "static/css/main.de92e433.css",
-    "static/js/main.11a6cbe7.js"
+    "static/js/main.e3fb964c.js"
   ]
 }
