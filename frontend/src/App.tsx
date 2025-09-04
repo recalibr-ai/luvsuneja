@@ -8,9 +8,7 @@ import BlogPost from "./pages/BlogPost";
 const App: FC = () => {
   return (
     <div className="App">
-      <BrowserRouter
-        {...(process.env.NODE_ENV === 'production' ? { basename: process.env.PUBLIC_URL || '' } : {})}
-      >
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
